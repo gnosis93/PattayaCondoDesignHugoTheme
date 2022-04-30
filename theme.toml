@@ -1,0 +1,17 @@
+name = "PattayaCondoDesignHugoTheme"
+license = "MIT"
+licenselink = "https://github.com/gnosis93/PattayaCondoDesignHugoTheme/master/LICENSE.md"
+description = "PattayaCondoDesignHugoTheme"
+tags = ["blog", "company"]
+features = ["blog", "themes", "disqus"]
+min_version = 0.53
+
+[author]
+    name = "webective"
+    homepage = "https://webective.com/"
+
+# If Porting existing theme
+[original]
+    author =  "webective"
+    homepage = "https://webective.com/"
+    repo = "https://github.com/gnosis93/PattayaCondoDesignHugoTheme"
