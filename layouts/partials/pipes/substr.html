@@ -1,0 +1,14 @@
+{{ if gt (len .desc) 100 }}
+    <div id="{{.type}}-{{.index}}-sub" class="font-italic mt-2">{{ (substr .desc 0 100) | safeHTML }}...
+        <a class="read-more" onclick="showDescription('{{.type}}', '{{.index}}');">
+            &nbsp;Read More
+        </a>
+    </div>
+    <div id="{{.type}}-{{.index}}-des" class="font-italic m-0 invisible">{{ .desc | safeHTML }}
+        <a class="read-more d-block mt-3" onclick="hideDescription('{{.type}}', '{{.index}}');">
+            Show Less
+        </a>
+    </div>
+{{else}}
+    <div class="text-justify font-italic mt-2">{{ .desc | safeHTML }}</div>
+{{end}}

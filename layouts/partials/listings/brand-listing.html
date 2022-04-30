@@ -1,0 +1,17 @@
+<div class="row defualt-padding pt-4 pb-3 col-12 m-auto">
+  {{ range (where .Pages ".Params.types" "brands") }} 
+  <div class="col-lg-2 mb-3 w-50">
+      <div class="brands rounded mb-3 text-center">
+        {{if .Params.website}}
+          <a href="{{.Params.website}}"  target="_blank">
+            <img  loading="lazy"  src="{{.Params.logo}}?nf_resize=fit&w=150&h=150" alt="brand">
+          </a>
+        {{else}}
+          <span>
+            <img  loading="lazy"  src="{{.Params.logo}}?nf_resize=fit&w=150&h=150" alt="brand">
+          </span>
+        {{end}}
+      </div>
+    </div>
+  {{ end }}
+</div>

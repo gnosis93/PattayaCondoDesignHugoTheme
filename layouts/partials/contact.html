@@ -1,0 +1,74 @@
+<div class="col-md-12 col-lg-6 offset-lg-3 pb-4">
+  <div class="email-form">
+    <form class="mb-5 mt-2" action="/thank-you" method="post" data-netlify-recaptcha="true" name="contact-form" data-netlify="true" netlify>
+      
+      <label>What would you like to renovate?</label>
+      <select
+        name="what-to-renovate"
+        class="form-control">
+          <option value="Kitchen">Kitchen</option>
+          <option value="Bathroom">Bathroom</option>
+          <option value="Bedroom">Bedroom</option>
+          <option value="Entire condo">Entire condo</option>
+          <option value="Entire house">Entire house</option>
+          <option value="Other">Other</option>
+      </select>
+      <br />
+      <label>What is your project budget?</label>
+      <select
+      name="estimated-budget"
+      class="form-control">
+        <option value="0-200.000 baht">0-200.000 baht</option>
+        <option value="200.001-500.000 baht">200.001-500.000 baht</option>
+        <option value="500.001-1,000.000 baht">500.001-1,000.000 baht</option>
+        <option value="1,000.001 - 2,500.000 baht">1,000.001 - 2,500.000 baht</option>
+        <option value="2,500.001 - 5,000.000 baht">2,500.001 - 5,000.000 baht</option>
+        <option value="more than 5,000.001 baht">more than 5,000.001 baht</option>
+    </select>
+    <br />
+    <textarea
+      class="form-control"
+      name="message"
+      cols="30"
+      rows="5"
+      placeholder='Tell us about your project...'
+      required
+    ></textarea>
+    <br />
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        placeholder='Name'
+        required
+      />
+      <br />
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        placeholder='E-mail address'
+        required
+      />
+      <br />
+      <input
+        type="text"
+        class="form-control"
+        name="line"
+        placeholder='Line ID'
+      />
+      <br />
+      <input
+        type="text"
+        class="form-control"
+        name="phone"
+        placeholder='Phone number'
+      />
+      <br />
+      <div class="m-auto" data-netlify-recaptcha="true"></div>
+      <button type="submit" class="btn btn-outline-dark w-100">
+        Send
+      </button>
+    </form>
+  </div>
+</div>

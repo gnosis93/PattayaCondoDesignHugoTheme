@@ -1,0 +1,54 @@
+<div id="desktop">
+    {{ range $pindex, $project := index (where .Pages ".Params.types" "projects").ByDate.Reverse }}
+        <div class="py-4 defualt-padding">
+            <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{.Params.Title}}')"><i class="fas fa-share-alt-square"></i></a>
+            <h4 class="font-weight-bold m-0 d-inline">{{.Params.Title}}</h4>
+            <span class="d-block mt-2" id="{{.Params.Title}}"></span>
+            {{ partial "pipes/substr" (dict "type" "project" "index" $pindex "desc" .Params.description) }}
+
+            <div class="row mt-4">
+            {{ range  $index, $element := $project.Params.gallery }}
+                {{if lt $index 3}}
+                    <div class="col-lg-4 mb-3 mb-lg-0">
+                        <div class="hover hover-3 text-white rounded">
+                            <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" data-lightbox="{{$project.Params.Title}}" class="gallery-overlay">
+                                <i class="far fa-images"></i>
+                            </a>
+                            <img loading="lazy" src="{{$element}}?nf_resize=smartcrop&w=576&h=346" alt="">
+                        </div>
+                    </div>
+                {{end}}
+                {{if eq $index 3}}
+                    <div class="btn-more">
+                    <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" class="btn-more" data-lightbox="{{$project.Params.Title}}">View More</a>
+                </div>
+                {{end}}
+                {{if gt $index 3}}
+                    <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" class="hidden" data-lightbox="{{$project.Params.Title}}"></a>
+                {{end}}
+        {{ end }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+<div id="mobile" class="mt-4">
+    <div class="defualt-padding">
+        {{ range $pindex, $project := index (where .Pages ".Params.types" "projects").ByDate.Reverse }}
+        <div class="row pb-4" id="project-m-{{ $pindex }}">
+                <div class="col-sm-12">
+                    <div class="card shadow">
+                        {{partial "carousel" (dict "Type" "Project" "Index" $pindex "Params" $project.Params)}}
+                        <div class="card-body">
+                            <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{$project.Params.Title}}-m')"><i class="fas fa-share-alt-square"></i></a>
+                            <h4 class="card-title d-inline"><strong>{{$project.Params.Title}}</strong></h4>
+      
+                            <span class="d-block mt-2" id="{{$project.Params.Title}}-m"></span>
+                            {{ partial "pipes/substr" (dict "type" "project-m" "index" $pindex "desc" .Params.description) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{ end }}
+    </div>
+</div>

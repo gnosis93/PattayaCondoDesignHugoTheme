@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="/">
+            <img class="header-logo" src="/images/logos/logo-header.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto mt-3 mb-2">
+                {{ range $index, $element := site.Menus.main }}
+                <li class="nav-item">
+                    <a id="nav-link" class="nav-link" href="{{ .URL }}"><span id="mobile"><i class="{{ .Pre }}"></i></span>{{ .Name }}</a>
+                </li>
+                {{if lt $index 4}}
+                    <span id="mobile" class="menu-line"></span>
+                {{end}}
+                {{ end }}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="homepage-banner-container banner-on-header">
+    <img src="/images/banners/homepage.jpg" alt="homepage-banner"/>
+    <div class="homepage-quote-container">
+        <div class="container-quote-text">
+            <h2>Professional Renovation and Decoration Service</h2>
+        </div>
+    </div>
+</div>  

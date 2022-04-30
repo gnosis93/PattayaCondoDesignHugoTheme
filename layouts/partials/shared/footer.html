@@ -1,0 +1,66 @@
+{{ with .Site.GetPage "/footer" }}
+<footer class="footer main-footer">
+    <div class="row footer-first-row">
+        <div class="col-md-12 col-lg-4 col-12">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <img src="/images/logos/logo-footer.png" alt="">
+                    <div class="row social-buttons-container">
+                        <div class="col-3 spacer"></div>
+                        <div class="col-6">
+                            <a class="footer-social-btn" target="_blank" href="{{.Params.facebook}}">
+                                <i class="fab fa-facebook-square"></i>
+                            </a>
+                        </div>
+                        {{/*<div class="col-2">
+                            <a class="footer-social-btn" target="_blank" href="{{.Params.linkedin}}">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a class="footer-social-btn" target="_blank" href="{{.Params.instagram}}">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </div>*/}}
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4 col-12">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h4>Office Address</h4>
+                    <h5>{{.Params.addressline1 | safeHTML}}</h5>
+                    <h5>{{.Params.addressline2 | safeHTML}}</h5>
+                    <h5>{{.Params.addressline3 | safeHTML}}</h5>
+                </div>
+               
+            </div>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4 col-12">
+            <div class="row mt-3">
+                <div class="col-12">
+                    <h4>Contact</h4>
+                    <h5><i class="fa fa-phone-square"></i>&nbsp;&nbsp;{{.Params.phone}}</h5>
+                    <h5><i class="fab fa-line"></i>&nbsp;&nbsp;{{.Params.line | safeHTML}}</h5>
+                    <h5><i class="fa fa-envelope-square"></i>&nbsp;&nbsp;{{.Params.email}}</h5>
+                </div>
+               
+            </div>
+
+        </div>
+    </div>
+    <div class="footer-second-row">
+        <div class="webective">
+            <a href="https://webective.com" alt="webective" target="_blank">
+                <span style="display: block;font-size: 14px; margin-bottom: 10px;">Website created and hosted by:</span>
+                <img src="/images/logos/webective.png"/>
+            </a>
+        </div>
+    </div>
+</footer>
+{{ end }}

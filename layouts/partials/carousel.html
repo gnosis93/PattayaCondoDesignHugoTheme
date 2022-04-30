@@ -1,0 +1,40 @@
+<div class="carousel">
+    <div class="carousel-inner">
+        {{ $counter := 0 }}
+        {{ range $gindex, $element := .Params.gallery }}
+            {{ $counter = $gindex }}
+        {{ end }}
+        <div class="carousel-column">
+            {{ range $gindex, $element := .Params.gallery }}
+                {{ if eq $gindex 0}}
+                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m">
+                        <img class="w-100 carousel-img"  src="{{$element}}?nf_resize=smartcrop&w=580&h=700">
+                    </a>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div class="carousel-column">
+            {{ range $gindex, $element := .Params.gallery }}
+                {{ if and (gt $gindex 0) (lt $gindex 3)}}
+                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m">
+                        <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}?nf_resize=smartcrop&w=290&h=236">
+                    </a>
+                {{ end }}
+                {{ if eq $gindex 3 }}
+                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m">
+                        <img class="w-100 carousel-img-small" src="{{$element}}?nf_resize=smartcrop&w=290&h=236">
+                        {{if gt $counter 3}}
+                            <div class="carousel-overlay"></div>
+                            <div class="counter">
+                                +{{ math.Sub $counter  3 }}
+                            </div>
+                        {{ end }}
+                    </a>
+                {{ end }}
+                {{ if gt $gindex 3 }}
+                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m"></a>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</div>
