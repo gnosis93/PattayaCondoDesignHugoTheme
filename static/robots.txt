@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /images/
-Disallow: /uploads/
-
-Sitemap: https://www.pattayainteriordesigner.com/sitemap.xml

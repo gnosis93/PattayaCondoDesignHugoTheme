@@ -23,12 +23,6 @@
 <meta property="og:description" content="{{ .Site.Params.description }}" />
 <meta name="twitter:description" content="{{ .Site.Params.description }}" />
 
-<!-- Sitemap & RSS Feed Tags -->
-<link rel="sitemap" type="application/xml" title="Sitemap" href='{{ "sitemap.xml" | absURL }}' />
-{{ with .OutputFormats.Get "RSS" }}
-<link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
-<link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" />
-{{ end }}
 
 <!-- Language tags -->
 <meta property="og:locale" content="{{ .Language.Lang }}" />
