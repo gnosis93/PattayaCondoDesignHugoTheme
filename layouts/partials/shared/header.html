@@ -1,5 +1,12 @@
 {{ with .Site.GetPage "/header" }}
-
+<style>
+    .nav>.nav-item>.nav-link:hover, .navbar-nav>.nav-item>.nav-link:hover{
+        color:{{ .Params.hoverTextColor }}!important
+    }
+    .nav-link{
+        color:{{.Params.textColor}}!important
+    }
+</style>
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="background-color:{{ .Params.backgroundColor }}!important;border-bottom:1px solid {{ .Params.borderBottomColor }};">
     <div class="container-fluid">
         <a href="/">
@@ -12,7 +19,7 @@
             <ul class="navbar-nav ml-auto mt-3 mb-2">
                 {{ range $index, $element := site.Menus.main }}
                 <li class="nav-item">
-                    <a id="nav-link" style="color:{{.Params.textColor}};" class="nav-link" href="{{ .URL }}"><span id="mobile"><i class="{{ .Pre }}"></i></span>{{ .Name }}</a>
+                    <a id="nav-link" class="nav-link" href="{{ .URL }}"><span id="mobile"><i class="{{ .Pre }}"></i></span>{{ .Name }}</a>
                 </li>
                 {{if lt $index 4}}
                     <span id="mobile" class="menu-line"></span>
@@ -24,7 +31,7 @@
 </nav>
 
 <div class="homepage-banner-container banner-on-header">
-    <img src="/images/banners/homepage.jpg" alt="homepage-banner"/>
+    <img src="{{.Params.banner }}" alt="homepage-banner"/>
     <div class="homepage-quote-container">
         <div class="container-quote-text">
             <h2>Professional Renovation and Decoration Service</h2>
