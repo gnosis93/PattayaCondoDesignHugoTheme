@@ -1,6 +1,6 @@
 {{ with .Site.GetPage "/header" }}
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="background-color:{{ .Params.backgroundColor }}!important;border-bottom:1px solid {{ .Params.borderBottomColor }};">
     <div class="container-fluid">
         <a href="/">
             <img class="header-logo" src="{{ .Params.logo }}" alt="">
@@ -12,7 +12,7 @@
             <ul class="navbar-nav ml-auto mt-3 mb-2">
                 {{ range $index, $element := site.Menus.main }}
                 <li class="nav-item">
-                    <a id="nav-link" class="nav-link" href="{{ .URL }}"><span id="mobile"><i class="{{ .Pre }}"></i></span>{{ .Name }}</a>
+                    <a id="nav-link" style="color:{{.Params.textColor}};" class="nav-link" href="{{ .URL }}"><span id="mobile"><i class="{{ .Pre }}"></i></span>{{ .Name }}</a>
                 </li>
                 {{if lt $index 4}}
                     <span id="mobile" class="menu-line"></span>
