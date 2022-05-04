@@ -1,4 +1,9 @@
 {{ with .Site.GetPage "/footer" }}
+<style>
+    .footer-first-row{
+        background-color: {{ .Params.footerFirstColor }};
+    }
+</style>
 <footer class="footer main-footer">
     <div class="row footer-first-row">
         <div class="col-md-12 col-lg-4 col-12">
