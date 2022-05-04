@@ -3,13 +3,17 @@
     .footer-first-row{
         background-color: {{ .Params.footerFirstColor }};
     }
+
+    .footer-second-row{
+        background-color: {{ .Params.footerSecondColor }};
+    }
 </style>
 <footer class="footer main-footer">
     <div class="row footer-first-row">
         <div class="col-md-12 col-lg-4 col-12">
             <div class="row mt-3">
                 <div class="col-12">
-                    <img src="/images/logos/logo-footer.png" alt="">
+                    <img src="{{ .Params.footerLogo }}" alt="">
                     <div class="row social-buttons-container">
                         <div class="col-3 spacer"></div>
                         <div class="col-6">
