@@ -1,34 +1,40 @@
 {{ define "main" }}
 
-    <!-- ABOUT -->
-    <hr class="hr-text mb-4 mt-5" data-content="About Us" id="about-us">
-    {{ partial "about" }}
+    {{ if .Site.Params.enable_about }}
+        <!-- ABOUT -->
+        <hr class="hr-text mb-4 mt-5" data-content="About Us" id="about-us">
+        {{ partial "about" }}
 
-    <!-- QUICK CONTACT -->
-    <!-- <hr class="hr-text mb-4 mt-5" data-content="Quick Contact" id="how-we-work">
-    {{ partial "contact" }} -->
-
-    <!-- STEPS -->
-    <hr class="hr-text mt-5" data-content="How We Work" id="how-we-work">
-    {{ partial "listings/step-listing" }}
+        <!-- STEPS -->
+        <hr class="hr-text mt-5" data-content="How We Work" id="how-we-work">
+        {{ partial "listings/step-listing" }}
+    {{ end }}
 
     <!-- FOR LIGHTBOX RESIZE -->
-    <a id="resize-lb" href="images/size150.png" data-lightbox="resize-lb"></a>
+    <!-- <a id="resize-lb" href="images/size150.png" data-lightbox="resize-lb"></a> -->
 
-    <!-- OUR PROJECTS -->
-    <hr class="hr-text mt-5" data-content="Our Projects" id="projects">
-    {{ partial "listings/project-listing" (dict "Pages" .Site.Pages) }}
+    {{if .Site.Params.enable_projects}}
+        <!-- OUR PROJECTS -->
+        <hr class="hr-text mt-5" data-content="Our Projects" id="projects">
+        {{ partial "listings/project-listing" (dict "Pages" .Site.Pages) }}
+    {{ end }}
 
-    <!-- OUR DESIGN PLANS -->
-    <hr class="hr-text mt-5" data-content="Our Design Plans" id="design-plans">
-    {{ partial "listings/plan-listing" (dict "Pages" .Site.Pages) }}
+    {{if .Site.Params.enable_plans}}
+        <!-- OUR DESIGN PLANS -->
+        <hr class="hr-text mt-5" data-content="Our Design Plans" id="design-plans">
+        {{ partial "listings/plan-listing" (dict "Pages" .Site.Pages) }}
+    {{ end }}
 
-    <!-- BRANDS WE LIKE -->
-    <hr class="hr-text mt-5" data-content="Brands We Like" id="brands">
-    {{ partial "listings/brand-listing" (dict "Pages" .Site.Pages) }}
+    {{if .Site.Params.enable_brands}}
+        <!-- BRANDS WE LIKE -->
+        <hr class="hr-text mt-5" data-content="Brands We Like" id="brands">
+        {{ partial "listings/brand-listing" (dict "Pages" .Site.Pages) }}
+    {{ end }}
 
-    <!-- CONTACT -->
-    <hr class="hr-text mt-5" data-content="Contact" id="contact">
-    {{ partial "contact" }}
+    {{ if .Site.Params.enable_form }}
+        <!-- CONTACT -->
+        <hr class="hr-text mt-5" data-content="Contact" id="contact">
+        {{ partial "contact" }}
+    {{ end }}
 
 {{ end }}

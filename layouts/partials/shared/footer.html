@@ -13,24 +13,26 @@
         <div class="col-md-12 col-lg-4 col-12">
             <div class="row mt-3">
                 <div class="col-12">
-                    <img src="{{ .Params.footerLogo }}" alt="">
+                    <img class="footer-logo" src="{{ .Params.footerLogo }}" alt="">
                     <div class="row social-buttons-container">
                         <div class="col-3 spacer"></div>
                         <div class="col-6">
-                            <a class="footer-social-btn" target="_blank" href="{{.Params.facebook}}">
+                            {{ if .Params.facebook }}
+                            <a class="footer-social-btn d-inline mx-1" target="_blank" href="{{.Params.facebook}}">
                                 <i class="fab fa-facebook-square"></i>
                             </a>
-                        </div>
-                        {{/*<div class="col-2">
-                            <a class="footer-social-btn" target="_blank" href="{{.Params.linkedin}}">
+                            {{ end }}
+                            {{ if .Params.linkedin }}
+                            <a class="footer-social-btn d-inline mx-1" target="_blank" href="{{.Params.linkedin}}">
                                 <i class="fab fa-linkedin"></i>
                             </a>
-                        </div>
-                        <div class="col-2">
-                            <a class="footer-social-btn" target="_blank" href="{{.Params.instagram}}">
+                            {{ end }}
+                            {{ if .Params.instagram }}
+                            <a class="footer-social-btn  d-inline mx-1" target="_blank" href="{{.Params.instagram}}">
                                 <i class="fab fa-instagram-square"></i>
                             </a>
-                        </div>*/}}
+                            {{ end }}
+                        </div>
                     </div>
                 </div>
                

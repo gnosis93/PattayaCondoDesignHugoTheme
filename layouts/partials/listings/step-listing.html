@@ -1,26 +1,30 @@
-<div class="row steps mt-5 pb-2">
-  <a class="col-lg-4">
-    <img src="images/icons/hands_w.png" alt="free consultation">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <strong>Step 1:</strong><br>Free consultation
+{{ with .Site.GetPage "/about" }}
+  {{ if .Params.enableSteps }}
+  <div class="row steps mt-5 pb-2">
+    <a class="col-lg-4">
+      <img src="images/icons/hands_w.png" alt="free consultation">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <strong>Step 1:</strong><br>Free consultation
+        </div>
       </div>
-    </div>
-  </a>
-  <a class="col-lg-4">
-    <img src="images/icons/3dh_w.png" alt="free consultation">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <strong>Step 2:</strong><br>Creating the 3D Plan
+    </a>
+    <a class="col-lg-4">
+      <img src="images/icons/3dh_w.png" alt="free consultation">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <strong>Step 2:</strong><br>Creating the 3D Plan
+        </div>
       </div>
-    </div>
-  </a>
-  <a class="col-lg-4">
-    <img src="images/icons/wand_w.png" alt="free consultation">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <strong>Step 3:</strong><br>Completion
+    </a>
+    <a class="col-lg-4">
+      <img src="images/icons/wand_w.png" alt="free consultation">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <strong>Step 3:</strong><br>Completion
+        </div>
       </div>
-    </div>
-  </a>
-</div>
+    </a>
+  </div>
+  {{end }}
+{{ end }}

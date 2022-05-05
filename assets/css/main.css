@@ -251,6 +251,10 @@ body {
   font-size: 0.8em;
 }
 
+.footer-logo {
+  max-height: 80px !important;
+}
+
 .foot-text-container {
   background-color: rgba(0, 0, 0, 0.93);
   color: white;
