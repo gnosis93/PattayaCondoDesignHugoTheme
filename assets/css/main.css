@@ -173,7 +173,7 @@ body {
 
 .nav > .nav-item > .nav-link:hover,
 .navbar-nav > .nav-item > .nav-link:hover {
-  color: #094f2a !important;
+  color: #094f2a;
   opacity: 0.8;
 }
 
