@@ -21,19 +21,19 @@
 	}
 
 	// WINDOW ORIENTATION CHANGE
-	window.onorientationchange = function() { 
-        switch(window.orientation) { 
-			case 0:
-				document.getElementById('lightbox').style.marginTop = "60px";
-				reopenGallery();
-				break;
-			case 90:
-			case -90: 
-				document.getElementById('lightbox').style.marginTop = "0px"; 
-				reopenGallery();
-				break;
-		} 
-    };
+	// window.onorientationchange = function() { 
+    //     switch(window.orientation) { 
+	// 		case 0:
+	// 			document.getElementById('lightbox').style.marginTop = "60px";
+	// 			reopenGallery();
+	// 			break;
+	// 		case 90:
+	// 		case -90: 
+	// 			document.getElementById('lightbox').style.marginTop = "0px"; 
+	// 			reopenGallery();
+	// 			break;
+	// 	} 
+    // };
 })(jQuery);
 
 function copyURL(permalink, id) {
@@ -61,14 +61,14 @@ function hideDescription(type, id) {
 	}
 }
 
-function reopenGallery(){
-	let lightbox = document.getElementById("lightbox").style.display;
-	if (lightbox != 'none'){
-		let url = document.getElementsByClassName('lb-image')[0].getAttribute('src');
-		//$('.lb-close')[0].click();
-		$('#resize-lb')[0].click();
-		setTimeout(() => {
-			$('a[href^="'+ url +'"]')[0].click();
-		}, 1000);
-	}
-}
+// function reopenGallery(){
+// 	let lightbox = document.getElementById("lightbox").style.display;
+// 	if (lightbox != 'none'){
+// 		let url = document.getElementsByClassName('lb-image')[0].getAttribute('src');
+// 		//$('.lb-close')[0].click();
+// 		$('#resize-lb')[0].click();
+// 		setTimeout(() => {
+// 			$('a[href^="'+ url +'"]')[0].click();
+// 		}, 1000);
+// 	}
+// }
