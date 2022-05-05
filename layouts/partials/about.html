@@ -23,4 +23,8 @@
   </div>
 </section>
 <div class="pt-4"></div>
+  <!-- STEPS -->
+  {{ if .Params.showSteps }}
+    {{ partial "listings/step-listing" }}
+  {{ end }}
 {{ end }}
