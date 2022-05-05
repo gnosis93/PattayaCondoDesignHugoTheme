@@ -252,7 +252,8 @@ body {
 }
 
 .footer-logo {
-  max-height: 80px !important;
+  max-height: 77px !important;
+  height: 77px;
   width: auto;
 }
 
