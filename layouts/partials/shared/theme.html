@@ -1,0 +1,11 @@
+{{ with .Site.GetPage "/theme_colors" }}
+<style>
+    .nav>.nav-item>.nav-link:hover, .navbar-nav>.nav-item>.nav-link:hover{color:{{ .Params.headerHoverTextColor }} !important;}
+    .nav-link{color:{{.Params.headerTextColor}} !important;}
+    .footer-first-row{background-color: {{ .Params.footerPrimaryBgColor }} !important;}
+    .footer-second-row{background-color: {{ .Params.footerSecondaryBgColor }} !important;}
+    .footer-first-row, .footer-second-row{color: {{ .Params.footerTextColor }} !important;}
+    .footer-first-row a, .footer-second-row a{color: {{ .Params.footerLinkColor }} !important;}
+    .btn-share, .read-more{color: {{ .Params.websiteLinkColor }} !important;}
+</style>
+{{ end }}

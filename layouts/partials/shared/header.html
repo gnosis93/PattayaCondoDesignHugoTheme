@@ -1,12 +1,4 @@
 {{ with .Site.GetPage "/header" }}
-<style>
-    .nav>.nav-item>.nav-link:hover, .navbar-nav>.nav-item>.nav-link:hover{
-        color:{{ .Params.hoverTextColor }}!important
-    }
-    .nav-link{
-        color:{{.Params.textColor}}!important
-    }
-</style>
 <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="background-color:{{ .Params.backgroundColor }}!important;border-bottom:1px solid {{ .Params.borderBottomColor }};">
     <div class="container-fluid">
         <a href="/">
