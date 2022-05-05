@@ -13,19 +13,19 @@
     <!-- FOR LIGHTBOX RESIZE -->
     <!-- <a id="resize-lb" href="images/size150.png" data-lightbox="resize-lb"></a> -->
 
-    {{if .Site.Params.enable_projects}}
+    {{ if .Site.Params.enable_projects }}
         <!-- OUR PROJECTS -->
         <hr class="hr-text mt-5" data-content="Our Projects" id="projects">
         {{ partial "listings/project-listing" (dict "Pages" .Site.Pages) }}
     {{ end }}
 
-    {{if .Site.Params.enable_plans}}
+    {{ if .Site.Params.enable_plans }}
         <!-- OUR DESIGN PLANS -->
         <hr class="hr-text mt-5" data-content="Our Design Plans" id="design-plans">
         {{ partial "listings/plan-listing" (dict "Pages" .Site.Pages) }}
     {{ end }}
 
-    {{if .Site.Params.enable_brands}}
+    {{ if .Site.Params.enable_brands }}
         <!-- BRANDS WE LIKE -->
         <hr class="hr-text mt-5" data-content="Brands We Like" id="brands">
         {{ partial "listings/brand-listing" (dict "Pages" .Site.Pages) }}

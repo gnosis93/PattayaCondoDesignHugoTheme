@@ -253,6 +253,7 @@ body {
 
 .footer-logo {
   max-height: 80px !important;
+  width: auto;
 }
 
 .foot-text-container {
