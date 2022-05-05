@@ -216,6 +216,7 @@ body {
 
 .footer-first-row {
   background-color: #094f2a;
+  padding-bottom: 30px !important;
 }
 
 .footer-first-row img {
