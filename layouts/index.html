@@ -3,11 +3,11 @@
     {{ if .Site.Params.enable_about }}
         <!-- ABOUT -->
         <hr class="hr-text mb-4 mt-5" data-content="About Us" id="about-us">
-        {{ partial "about" }}
+        {{ partial "about" . }}
 
         <!-- STEPS -->
         <hr class="hr-text mt-5" data-content="How We Work" id="how-we-work">
-        {{ partial "listings/step-listing" }}
+        {{ partial "listings/step-listing" . }}
     {{ end }}
 
     <!-- FOR LIGHTBOX RESIZE -->
