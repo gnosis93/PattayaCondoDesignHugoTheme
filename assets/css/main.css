@@ -252,7 +252,7 @@ body {
 }
 
 .footer-logo {
-  max-height: 150px;
+  max-height: 120px;
   object-fit: contain;
   object-position: left;
 }
