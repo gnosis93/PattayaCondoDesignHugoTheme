@@ -2,6 +2,7 @@
 <style>
     .nav>.nav-item>.nav-link:hover, .navbar-nav>.nav-item>.nav-link:hover{color:{{ .Params.header.hoverTextColor }} !important;}
     .nav-link{color:{{.Params.header.textColor}} !important;}
+    .navbar{background-color:{{ .Params.header.backgroundColor}} !important;border-bottom: 1px solid {{ .Params.header.borderBottomColor}} !important;}
     .footer-first-row{background-color: {{ .Params.footer.primaryBgColor }} !important;}
     .footer-second-row{background-color: {{ .Params.footer.secondaryBgColor }} !important;}
     .footer-first-row, .footer-second-row{color: {{ .Params.footer.textColor }} !important;}
