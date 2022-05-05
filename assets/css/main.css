@@ -252,9 +252,10 @@ body {
 }
 
 .footer-logo {
-  max-height: 77px !important;
   height: 77px;
-  width: auto;
+  object-fit: contain;
+  max-height: 77px;
+  object-position: left;
 }
 
 .foot-text-container {
@@ -669,6 +670,9 @@ option {
   }
   .social-buttons-container {
     margin-top: 0px;
+  }
+  .footer-logo {
+    object-position: center;
   }
   .gallery-overlay {
     border-radius: 4px 0 0 0;
