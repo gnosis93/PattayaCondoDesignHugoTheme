@@ -10,12 +10,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto mt-3 mb-2">
                 {{ range $index, $element := site.Menus.main }}
+                {{if gt $index 0}}
+                    <span id="mobile" class="menu-line"></span>
+                {{end}}
                 <li class="nav-item">
                     <a id="nav-link" class="nav-link" href="{{ .URL }}"><span id="mobile"><i class="{{ .Pre }}"></i></span>{{ .Name }}</a>
                 </li>
-                {{if lt $index 4}}
-                    <span id="mobile" class="menu-line"></span>
-                {{end}}
                 {{ end }}
             </ul>
         </div>
