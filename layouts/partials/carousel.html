@@ -1,4 +1,4 @@
-<div class="carousel">
+<div id="custom-gallery" class="carousel">
     <div class="carousel-inner">
         {{ $counter := 0 }}
         {{ range $gindex, $element := .Params.gallery }}
@@ -7,8 +7,8 @@
         <div class="carousel-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if eq $gindex 0}}
-                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m">
-                        <img class="w-100 carousel-img"  src="{{$element}}?nf_resize=smartcrop&w=580&h=700">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
+                        <img class="w-100 carousel-img" src="{{$element}}?nf_resize=smartcrop&w=580&h=700">
                     </a>
                 {{ end }}
             {{ end }}
@@ -16,12 +16,12 @@
         <div class="carousel-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
-                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
                         <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}?nf_resize=smartcrop&w=290&h=236">
                     </a>
                 {{ end }}
                 {{ if eq $gindex 3 }}
-                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
                         <img class="w-100 carousel-img-small" src="{{$element}}?nf_resize=smartcrop&w=290&h=236">
                         {{if gt $counter 3}}
                             <div class="carousel-overlay"></div>
@@ -32,7 +32,7 @@
                     </a>
                 {{ end }}
                 {{ if gt $gindex 3 }}
-                    <a href="{{$element}}?nf_resize=fit&w=1184&h=1776" data-lightbox="{{$.Type}}-{{$.Index}}-m"></a>
+                    <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920"></a>
                 {{ end }}
             {{ end }}
         </div>

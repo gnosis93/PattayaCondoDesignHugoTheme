@@ -8,9 +8,9 @@
     {{ $fontAwesomeCSS := resources.Get "/libs/fontawesome/all.css" }}
     {{ $bootstrapCSS := resources.Get "/libs/bootstrap/css/bootstrap.css" }}
     {{ $mainCSS := resources.Get "/css/main.css" }}
-    {{ $lightboxCSS := resources.Get "/css/lightbox.min.css" }}
+    {{ $customGalleryCSS := resources.Get "/css/custom-gallery.css" }}
 
-    {{ $secureCSS := slice $bootstrapCSS $mainCSS $fontAwesomeCSS $lightboxCSS | resources.Concat "bundle.css" |
+    {{ $secureCSS := slice $bootstrapCSS $mainCSS $fontAwesomeCSS $customGalleryCSS | resources.Concat "bundle.css" |
     resources.Minify | resources.Fingerprint "sha512" }}
 
     <link rel="stylesheet" href="{{ $secureCSS.RelPermalink }}" integrity="{{ $secureCSS.Data.Integrity }}" />
@@ -62,6 +62,16 @@
 </head>
 
 <body>
+    <!-- PRELOADER -->
+    {{ with .Site.GetPage "/header" }}
+    <div id="preloader">
+        <span>
+            <img src="{{ .Params.preloaderLogo }}" alt="Please wait...">
+            <img src="/images/preloader.gif">
+        </span>
+    </div>
+    {{ end }}
+
     {{ partial "shared/header" .}}
 
     {{ block "main" .}}{{ end }}
@@ -71,9 +81,9 @@
     {{ $jqueryJS := resources.Get "/libs/jquery/jquery-3.6.0.min.js" }}
     {{ $bootstrapJS := resources.Get "/libs/bootstrap/js/bootstrap.js" }}
     {{ $mainJS := resources.Get "/js/main.js" }}
-    {{ $lightBoxJS := resources.Get "/js/lightbox.min.js" }}
+    {{ $customGalleryJS := resources.Get "/js/custom-gallery.js" }}
 
-    {{ $secureJS := slice $jqueryJS $bootstrapJS $mainJS $lightBoxJS | resources.Concat "bundle.js" |
+    {{ $secureJS := slice $jqueryJS $bootstrapJS $mainJS $customGalleryJS | resources.Concat "bundle.js" |
     resources.Minify | resources.Fingerprint "sha512" }}
     <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}">
     </script>

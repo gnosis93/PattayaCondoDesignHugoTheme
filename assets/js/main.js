@@ -1,39 +1,23 @@
 (function ($) {
 	'use strict';
+
 	$('.navbar-collapse a').click(function () {
 		$(".navbar-collapse").collapse('hide');
 	});
 
+	// PRELOADER TIMEOUT
+	setTimeout(() => {
+		$('#preloader').fadeOut(300);
+	}, 8000);
+
 	// WINDOW ONLOAD
 	window.onload = function () {
-		// INIT AOS
-		//initAOS();
-		//checkPosition();
-
+		$('#preloader').fadeOut(300);
 		// CAPTCHA VALIDATION
-		var recaptcha = document.forms["contact-form"]["g-recaptcha-response"];
-		if (recaptcha != undefined && recaptcha != null) {
-			recaptcha.required = true;
-			recaptcha.oninvalid = function (e) {
-				alert("Please check the box, \"I'm not a robot\" in the reCaptcha below.");
-			}
+		if ( window.location.pathname == '/' ){
+			validateCaptcha();
 		}
 	}
-
-	// WINDOW ORIENTATION CHANGE
-	// window.onorientationchange = function() { 
-    //     switch(window.orientation) { 
-	// 		case 0:
-	// 			document.getElementById('lightbox').style.marginTop = "60px";
-	// 			reopenGallery();
-	// 			break;
-	// 		case 90:
-	// 		case -90: 
-	// 			document.getElementById('lightbox').style.marginTop = "0px"; 
-	// 			reopenGallery();
-	// 			break;
-	// 	} 
-    // };
 })(jQuery);
 
 function copyURL(permalink, id) {
@@ -47,7 +31,6 @@ function copyURL(permalink, id) {
 		document.getElementById(id).innerHTML = "";
 	}, 3000);
 }
-
 function showDescription(type, id) {
 	document.getElementById(type + '-' + id + '-sub').classList.add('invisible');
 	document.getElementById(type + '-' + id + '-des').classList.remove('invisible');
@@ -60,15 +43,14 @@ function hideDescription(type, id) {
 		element.scrollIntoView({ behavior: "smooth", block: "center" });
 	}
 }
-
-// function reopenGallery(){
-// 	let lightbox = document.getElementById("lightbox").style.display;
-// 	if (lightbox != 'none'){
-// 		let url = document.getElementsByClassName('lb-image')[0].getAttribute('src');
-// 		//$('.lb-close')[0].click();
-// 		$('#resize-lb')[0].click();
-// 		setTimeout(() => {
-// 			$('a[href^="'+ url +'"]')[0].click();
-// 		}, 1000);
-// 	}
-// }
+function validateCaptcha(){
+	setInterval(() => {
+		let recaptcha = document.forms["contact-form"]["g-recaptcha-response"];
+		if (recaptcha != undefined && recaptcha != null) {
+			recaptcha.required = true;
+			recaptcha.oninvalid = function (e) {
+				alert("Please check the box, \"I'm not a robot\" in the reCaptcha below.");
+			}
+		}
+	}, 5000);
+}

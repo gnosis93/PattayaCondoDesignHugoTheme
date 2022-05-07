@@ -1,9 +1,5 @@
 {{ define "main" }}
 
-    {{ $image := resources.Get "uploads/01.jpg" }}
-    {{ $image := $image.Fit "200x100 q50" }}
-    <img src="{{ $image.RelPermalink }}">
-
     <!-- ABOUT -->
     {{ if .Site.Params.enable_about }}
         <hr class="hr-text mb-4 mt-5" data-content="About Us" id="about-us">

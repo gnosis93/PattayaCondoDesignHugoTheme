@@ -6,25 +6,29 @@
             <span class="d-block mt-2" id="{{.Params.Title}}"></span>
             {{ partial "pipes/substr" (dict "type" "project" "index" $pindex "desc" .Params.description) }}
 
-            <div class="row mt-4">
+            <div id="custom-gallery" class="row mt-4">
             {{ range  $index, $element := $project.Params.gallery }}
                 {{if lt $index 3}}
                     <div class="col-lg-4 mb-3 mb-lg-0">
                         <div class="hover hover-3 text-white rounded">
-                            <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" data-lightbox="{{$project.Params.Title}}" class="gallery-overlay">
-                                <i class="far fa-images"></i>
+                            <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
+                                <img loading="lazy" src="{{$element}}?nf_resize=smartcrop&w=576&h=346">
                             </a>
-                            <img loading="lazy" src="{{$element}}?nf_resize=smartcrop&w=576&h=346" alt="">
                         </div>
                     </div>
                 {{end}}
                 {{if eq $index 3}}
                     <div class="btn-more">
-                    <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" class="btn-more" data-lightbox="{{$project.Params.Title}}">View More</a>
-                </div>
+                        <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
+                            View More
+                        </a>
+                    </div>
                 {{end}}
                 {{if gt $index 3}}
-                    <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" class="hidden" data-lightbox="{{$project.Params.Title}}"></a>
+                    {{/*  {{ $image := resources.Get $element }}
+                    {{ $image := $image.Fit "1280x1920 q75" }}
+                    <a class="custom-gallery-item hidden" data-src="{{ $image.RelPermalink }}"></a>  */}}
+                    <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920"></a>
                 {{end}}
         {{ end }}
         </div>

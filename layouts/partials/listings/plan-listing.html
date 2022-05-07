@@ -1,54 +1,56 @@
 <div id="desktop">
-    {{ range $pindex, $plan := index (where .Pages ".Params.types" "designplans").ByDate.Reverse }}
-  <div class="py-4 defualt-padding">
-    <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{.Params.Title}}')"><i class="fas fa-share-alt-square"></i></a>
-    <h4 class="font-weight-bold m-0 d-inline">{{$plan.Params.Title}}</h4>
-    <span class="d-block mt-2" id="{{.Params.Title}}"></span>
+  {{ range $pindex, $plan := index (where .Pages ".Params.types" "designplans").ByDate.Reverse }}
+<div class="py-4 defualt-padding">
+  <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{.Params.Title}}')"><i class="fas fa-share-alt-square"></i></a>
+  <h4 class="font-weight-bold m-0 d-inline">{{$plan.Params.Title}}</h4>
+  <span class="d-block mt-2" id="{{.Params.Title}}"></span>
 
-    {{ partial "pipes/substr" (dict "type" "plan" "index" $pindex "desc" .Params.description) }}
+  {{ partial "pipes/substr" (dict "type" "plan" "index" $pindex "desc" .Params.description) }}
 
-    <div class="row mt-4">
-      {{ range  $index, $element := $plan.Params.gallery }}
-          {{if lt $index 3}}
-              <div class="col-lg-4 mb-3 mb-lg-0">
-                <div class="hover hover-3 text-white rounded">
-                  <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" data-lightbox="{{$plan.Params.Title}}" class="gallery-overlay">
-                    <i class="far fa-images"></i>
-                  </a>
-                  <img src="{{$element}}?nf_resize=smartcrop&w=576&h=346" loading="lazy" alt="">
-                </div>
-              </div>
-          {{end}}
-          {{if eq $index 3}}
-          <div class="btn-more">
-            <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" class="btn-more" data-lightbox="{{$plan.Params.Title}}">View More</a>
+  <div id="custom-gallery" class="row mt-4">
+    {{ range  $index, $element := $plan.Params.gallery }}
+        {{if lt $index 3}}
+          <div class="col-lg-4 mb-3 mb-lg-0">
+            <div class="hover hover-3 text-white rounded">
+              <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
+                <img loading="lazy" src="{{$element}}?nf_resize=smartcrop&w=576&h=346">
+            </a>
+            </div>
           </div>
-          {{end}}
-          {{if gt $index 3}}
-            <a href="{{$element}}?nf_resize=fit&w=1280&h=1920" class="hidden" data-lightbox="{{$plan.Params.Title}}"></a>
-          {{end}}
-      {{ end }}
-    </div>
+        {{end}}
+        {{if eq $index 3}}
+          <div class="btn-more">
+            <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
+              View More
+            </a>
+          </div>
+        {{end}}
+        {{if gt $index 3}}
+          <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
+          </a>
+        {{end}}
+    {{ end }}
   </div>
-  {{ end }}
+</div>
+{{ end }}
 </div>
 
 <div id="mobile" class="mt-4">
-  <div class="defualt-padding">
-      {{ range $pindex, $plan := index (where .Pages ".Params.types" "designplans").ByDate.Reverse }}
-          <div class="row pb-4" id="plan-m-{{ $pindex }}">
-              <div class="col-sm-12">
-                  <div class="card shadow">
-                      {{partial "carousel" (dict "Type" "Plan" "Index" $pindex "Params" $plan.Params)}}
-                      <div class="card-body">
-                          <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{$plan.Params.Title}}-m')"><i class="fas fa-share-alt-square"></i></a>
-                          <h4 class="card-title d-inline"><strong>{{$plan.Params.Title}}</strong></h4>
-                        <span class="d-block mt-2" id="{{$plan.Params.Title}}-m"></span>
-                        {{ partial "pipes/substr" (dict "type" "plan-m" "index" $pindex "desc" .Params.description) }}
-                      </div>
-                  </div>
-              </div>
-          </div>
-      {{ end }}
-  </div>
+<div class="defualt-padding">
+    {{ range $pindex, $plan := index (where .Pages ".Params.types" "designplans").ByDate.Reverse }}
+        <div class="row pb-4" id="plan-m-{{ $pindex }}">
+            <div class="col-sm-12">
+                <div class="card shadow">
+                    {{partial "carousel" (dict "Type" "Plan" "Index" $pindex "Params" $plan.Params)}}
+                    <div class="card-body">
+                        <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{$plan.Params.Title}}-m')"><i class="fas fa-share-alt-square"></i></a>
+                        <h4 class="card-title d-inline"><strong>{{$plan.Params.Title}}</strong></h4>
+                      <span class="d-block mt-2" id="{{$plan.Params.Title}}-m"></span>
+                      {{ partial "pipes/substr" (dict "type" "plan-m" "index" $pindex "desc" .Params.description) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{ end }}
+</div>
 </div>
