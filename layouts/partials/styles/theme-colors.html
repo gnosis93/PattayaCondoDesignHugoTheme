@@ -1,5 +1,6 @@
 {{ with .Site.GetPage "/theme-colors" }}
 <style>
+    #preloader{background-color: {{ .Params.preloaderBgColor }} !important;}
     .nav>.nav-item>.nav-link:hover, .navbar-nav>.nav-item>.nav-link:hover{color: {{ .Params.header.hoverTextColor }} !important;}
     .navbar-nav .nav-link{color: {{.Params.header.textColor}} !important;}
     .navbar{background-color: {{ .Params.header.backgroundColor}} !important; border-color: {{ .Params.header.borderBottomColor}} !important;}
