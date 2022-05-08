@@ -398,6 +398,7 @@ body {
   height: 350px !important;
 }
 .carousel-img-small {
+  object-fit: cover;
   object-position: center;
   height: 118px !important;
   padding-left: 4px;

@@ -17,8 +17,16 @@
           <div class="col-lg-4 mb-3 mb-lg-0">
             <div class="hover hover-3 text-white rounded">
               <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
-                <img loading="lazy" src="{{$image.RelPermalink}}">
-            </a>
+
+
+                <picture>
+                  <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
+                  <img src="{{$image.RelPermalink}}">
+              </picture>
+              {{/*  <img loading="lazy" src="{{$image.RelPermalink}}">  */}}
+            
+            
+              </a>
             </div>
           </div>
         {{end}}
