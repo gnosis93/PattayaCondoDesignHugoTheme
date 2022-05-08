@@ -9,7 +9,7 @@
                 {{ if eq $gindex 0}}
 
                     {{ $source := resources.Get $element }}
-                    {{ $thumbnail := $source.Fit "640x350 q50" }}
+                    {{ $thumbnail := $source.Fit "640x360 q50" }}
                     {{ $image := $source.Fit "1280x720 q75" }}
 
                     <a class="custom-gallery-item" data-src="{{ $image.RelPermalink }}">
@@ -22,7 +22,7 @@
             {{ range $gindex, $element := .Params.gallery }}
 
                 {{ $source := resources.Get $element }}
-                {{ $thumbnail := $source.Fit "292x120 q50" }}
+                {{ $thumbnail := $source.Fit "640x360 q50" }}
                 {{ $image := $source.Fit "1280x720 q75" }}
 
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
