@@ -7,59 +7,31 @@
         <div class="carousel-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if eq $gindex 0}}
-
-                    {{ $image := resources.Get "uploads/01.jpg" }}
-                    {{ $image := $image.Fit "1920x1080 q100" }}
-
-                    <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
-
-
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
                         <picture>
                             <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
-                            <img class="w-100 carousel-img" src="{{$image.RelPermalink}}">
+                            <img class="w-100 carousel-img" src="{{$element}}?nf_resize=fit&w=1920&h=1080">
                         </picture>
-
-
-
-
                     </a>
                 {{ end }}
             {{ end }}
         </div>
         <div class="carousel-column">
             {{ range $gindex, $element := .Params.gallery }}
-
-                {{ $image := resources.Get "uploads/01.jpg" }}
-                {{ $image := $image.Fit "1920x1080 q100" }}
-
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
-                    <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
-
-
-
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
                         <picture>
                             <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
-                            <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$image.RelPermalink}}">
+                            <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}?nf_resize=fit&w=1920&h=1080">
                         </picture>
-                    
-                    
-                    
-                    
                     </a>
                 {{ end }}
                 {{ if eq $gindex 3 }}
-                    <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
-                        
-                        
-                        
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
                         <picture>
                             <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
-                            <img class="w-100 carousel-img-small" src="{{$image.RelPermalink}}">
+                            <img class="w-100 carousel-img-small" src="{{$element}}?nf_resize=fit&w=1920&h=1080">
                         </picture>
-                        
-                        
-                        
-                        
                         {{if gt $counter 3}}
                             <div class="carousel-overlay"></div>
                             <div class="counter">

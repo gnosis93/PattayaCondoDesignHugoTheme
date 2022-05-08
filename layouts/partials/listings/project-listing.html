@@ -7,38 +7,32 @@
             {{ partial "pipes/substr" (dict "type" "project" "index" $pindex "desc" .Params.description) }}
 
             <div id="custom-gallery" class="row mt-4">
-            {{ range  $index, $element := $project.Params.gallery }}
-
-                {{ $image := resources.Get "uploads/01.jpg" }}
-                {{ $image := $image.Fit "1920x1080 q100" }}
-
+                {{ range  $index, $element := $plan.Params.gallery }}
                 {{if lt $index 3}}
-                    <div class="col-lg-4 mb-3 mb-lg-0">
-                        <div class="hover hover-3 text-white rounded">
-                            <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
-
-                                <picture>
-                                    <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
-                                    <img src="{{$image.RelPermalink}}">
-                                </picture>
-                                {{/*  <img loading="lazy" src="{{$image.RelPermalink}}">  */}}
-
-
-                            </a>
-                        </div>
+                  <div class="col-lg-4 mb-3 mb-lg-0">
+                    <div class="hover hover-3 text-white rounded">
+                      <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                        <picture>
+                          <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
+                          <img src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                        </picture>
+                        {{/*  <img loading="lazy" src="{{$image.RelPermalink}}">  */}}
+                      </a>
                     </div>
+                  </div>
                 {{end}}
                 {{if eq $index 3}}
-                    <div class="btn-more">
-                        <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
-                            View More
-                        </a>
-                    </div>
+                  <div class="btn-more">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                      View More
+                    </a>
+                  </div>
                 {{end}}
                 {{if gt $index 3}}
-                    <a class="custom-gallery-item hidden" data-src="{{$image.RelPermalink}}"></a>
+                  <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                  </a>
                 {{end}}
-        {{ end }}
+            {{ end }}
         </div>
     </div>
     {{ end }}
