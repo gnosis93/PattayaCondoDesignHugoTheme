@@ -11,25 +11,24 @@
                 {{if lt $index 3}}
                   <div class="col-lg-4 mb-3 mb-lg-0">
                     <div class="hover hover-3 text-white rounded">
-                      <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                      <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         <picture>
                           <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
-                          <img src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                          <img loading="lazy" src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         </picture>
-                        {{/*  <img loading="lazy" src="{{$element}}?nf_resize=fit&w=1920&h=1080">  */}}
                       </a>
                     </div>
                   </div>
                 {{end}}
                 {{if eq $index 3}}
                   <div class="btn-more">
-                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                       View More
                     </a>
                   </div>
                 {{end}}
                 {{if gt $index 3}}
-                  <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1920&h=1080">
+                  <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                   </a>
                 {{end}}
             {{ end }}
