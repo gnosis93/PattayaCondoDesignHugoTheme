@@ -9,7 +9,7 @@
                 {{ if eq $gindex 0}}
                     <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         <picture>
-                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
+                            <source srcset="{{$element}}?nf_resize=fit&w=1280&h=1024"> 
                             <img class="w-100 carousel-img" src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         </picture>
                     </a>
@@ -21,7 +21,7 @@
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
                     <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         <picture>
-                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
+                            <source srcset="{{$element}}?nf_resize=fit&w=1280&h=1024"> 
                             <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         </picture>
                     </a>
@@ -29,7 +29,7 @@
                 {{ if eq $gindex 3 }}
                     <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         <picture>
-                            <source srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" media="(max-width: 768px)"> 
+                            <source srcset="{{$element}}?nf_resize=fit&w=1280&h=1024"> 
                             <img class="w-100 carousel-img-small" src="{{$element}}?nf_resize=fit&w=1280&h=1024">
                         </picture>
                         {{if gt $counter 3}}
