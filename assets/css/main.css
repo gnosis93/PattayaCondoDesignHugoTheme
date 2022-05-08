@@ -388,6 +388,7 @@ body {
   font-size: 38px;
   bottom: 30px;
   left: 0;
+  width: 100%;
   text-align: center;
 }
 
@@ -395,7 +396,7 @@ body {
   position: absolute;
   bottom: 4px;
   right: -4px;
-  width: 50% !important;
+  width: 100% !important;
   height: 114px !important;
   background-color: #000;
   opacity: 0.5 !important;
