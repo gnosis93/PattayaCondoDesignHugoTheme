@@ -7,10 +7,10 @@
         <div class="carousel-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if eq $gindex 0}}
-                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
                         <picture>
-                            <source srcset="{{$element}}?nf_resize=fit&w=1280&h=1024"> 
-                            <img class="w-100 carousel-img" src="{{$element}}?nf_resize=fit&w=1280&h=1024">
+                            <source srcset="{{$element}}?nf_resize=smartcrop&w=580&h=700"> 
+                            <img class="w-100 carousel-img" src="{{$element}}?nf_resize=smartcrop&w=580&h=700">
                         </picture>
                     </a>
                 {{ end }}
@@ -19,18 +19,18 @@
         <div class="carousel-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
-                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
                         <picture>
-                            <source srcset="{{$element}}?nf_resize=fit&w=1280&h=1024"> 
-                            <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}?nf_resize=fit&w=1280&h=1024">
+                            <source srcset="{{$element}}?nf_resize=smartcrop&w=290&h=236"> 
+                            <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}?nf_resize=smartcrop&w=290&h=236">
                         </picture>
                     </a>
                 {{ end }}
                 {{ if eq $gindex 3 }}
-                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024">
+                    <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
                         <picture>
-                            <source srcset="{{$element}}?nf_resize=fit&w=1280&h=1024"> 
-                            <img class="w-100 carousel-img-small" src="{{$element}}?nf_resize=fit&w=1280&h=1024">
+                            <source srcset="{{$element}}?nf_resize=smartcrop&w=290&h=236"> 
+                            <img class="w-100 carousel-img-small" src="{{$element}}?nf_resize=smartcrop&w=290&h=236">
                         </picture>
                         {{if gt $counter 3}}
                             <div class="carousel-overlay"></div>
@@ -41,7 +41,7 @@
                     </a>
                 {{ end }}
                 {{ if gt $gindex 3 }}
-                    <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1280&h=1024"></a>
+                    <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920"></a>
                 {{ end }}
             {{ end }}
         </div>
