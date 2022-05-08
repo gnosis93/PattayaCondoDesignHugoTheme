@@ -6,30 +6,34 @@
             <span class="d-block mt-2" id="{{.Params.Title}}"></span>
             {{ partial "pipes/substr" (dict "type" "project" "index" $pindex "desc" .Params.description) }}
             <div id="custom-gallery" class="row mt-4">
-                {{ range  $index, $element := $project.Params.gallery }}
+              {{ range  $index, $element := $project.Params.gallery }}
+
+                {{ $source := resources.Get $element }}
+                {{ $thumbnail := $source.Fit "640x360 q50" }}
+                {{ $image := $source.Fit "1280x720 q75" }}
+
                 {{if lt $index 3}}
                   <div class="col-lg-4 mb-3 mb-lg-0">
                     <div class="hover hover-3 text-white rounded">
-                      <a class="custom-gallery-item" data-src="{{$element}}">
-                          <img loading="lazy" src="{{$element}}">
+                      <a class="custom-gallery-item" data-src="{{ $image.RelPermalink }}">
+                          <img src="{{ $thumbnail.RelPermalink }}">
                       </a>
                     </div>
                   </div>
                 {{end}}
                 {{if eq $index 3}}
                   <div class="btn-more">
-                    <a class="custom-gallery-item" data-src="{{$element}}">
+                    <a class="custom-gallery-item" data-src="{{ $image.RelPermalink }}">
                       View More
                     </a>
                   </div>
                 {{end}}
                 {{if gt $index 3}}
-                  <a class="custom-gallery-item hidden" data-src="{{$element}}">
-                  </a>
+                  <a class="custom-gallery-item hidden" data-src="{{ $image.RelPermalink }}"></a>
                 {{end}}
-            {{ end }}
+              {{ end }}
+            </div>
         </div>
-    </div>
     {{ end }}
 </div>
 

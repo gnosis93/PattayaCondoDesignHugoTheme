@@ -7,22 +7,32 @@
         <div class="photo-grid-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if eq $gindex 0}}
-                    <a class="custom-gallery-item" data-src="{{$element}}">
-                        <img class="w-100 photo-grid-img" src="{{$element}}">
+
+                    {{ $source := resources.Get $element }}
+                    {{ $thumbnail := $source.Fit "292x350 q50" }}
+                    {{ $image := $source.Fit "1280x720 q75" }}
+
+                    <a class="custom-gallery-item" data-src="{{ $image.RelPermalink }}">
+                        <img class="w-100 photo-grid-img" src="{{ $thumbnail.RelPermalink }}">
                     </a>
                 {{ end }}
             {{ end }}
         </div>
         <div class="photo-grid-column">
             {{ range $gindex, $element := .Params.gallery }}
+
+                {{ $source := resources.Get $element }}
+                {{ $thumbnail := $source.Fit "292x120 q50" }}
+                {{ $image := $source.Fit "1280x720 q75" }}
+
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
-                    <a class="custom-gallery-item" data-src="{{$element}}">
-                        <img class="w-100 photo-grid-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}">
+                    <a class="custom-gallery-item" data-src="{{ $image.RelPermalink }}">
+                        <img class="w-100 photo-grid-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{ $thumbnail.RelPermalink }}">
                     </a>
                 {{ end }}
                 {{ if eq $gindex 3 }}
-                    <a class="custom-gallery-item" data-src="{{$element}}">
-                        <img class="w-100 photo-grid-img-small" src="{{$element}}">
+                    <a class="custom-gallery-item" data-src="{{ $image.RelPermalink }}">
+                        <img class="w-100 photo-grid-img-small" src="{{ $thumbnail.RelPermalink }}">
                         {{if gt $counter 3}}
                             <div class="photo-grid-overlay"></div>
                             <div class="counter">
@@ -32,7 +42,7 @@
                     </a>
                 {{ end }}
                 {{ if gt $gindex 3 }}
-                    <a class="custom-gallery-item hidden" data-src="{{$element}}"></a>
+                    <a class="custom-gallery-item hidden" data-src="{{ $image.RelPermalink }}"></a>
                 {{ end }}
             {{ end }}
         </div>
