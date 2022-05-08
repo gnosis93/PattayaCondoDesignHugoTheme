@@ -1,0 +1,9 @@
+{{ $fontAwesomeCSS := resources.Get "/libs/fontawesome/all.css" }}
+{{ $bootstrapCSS := resources.Get "/libs/bootstrap/css/bootstrap.css" }}
+{{ $mainCSS := resources.Get "/css/main.css" }}
+{{ $customGalleryCSS := resources.Get "/css/custom-gallery.css" }}
+
+{{ $secureCSS := slice $bootstrapCSS $mainCSS $fontAwesomeCSS $customGalleryCSS | resources.Concat "bundle.css" |
+resources.Minify | resources.Fingerprint "sha512" }}
+
+<link rel="stylesheet" href="{{ $secureCSS.RelPermalink }}" integrity="{{ $secureCSS.Data.Integrity }}" />

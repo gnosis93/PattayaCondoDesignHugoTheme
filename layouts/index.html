@@ -6,19 +6,16 @@
         {{ partial "about" . }}
     {{ end }}
 
-    <!-- FOR LIGHTBOX RESIZE -->
-    <!-- <a id="resize-lb" href="images/size150.png" data-lightbox="resize-lb"></a> -->
-
     <!-- OUR PROJECTS -->
     {{ if .Site.Params.enable_projects }}
         <hr class="hr-text mt-5" data-content="Our Projects" id="projects">
-        {{ partial "listings/project-listing" (dict "Pages" .Site.Pages) }}
+        {{ partial "listings/project-listing" (dict "Type" "projects" "Pages" .Site.Pages) }}
     {{ end }}
 
     <!-- OUR DESIGN PLANS -->
     {{ if .Site.Params.enable_plans }}
         <hr class="hr-text mt-5" data-content="Our Design Plans" id="design-plans">
-        {{ partial "listings/plan-listing" (dict "Pages" .Site.Pages) }}
+        {{ partial "listings/project-listing" (dict "Type" "designplans" "Pages" .Site.Pages) }}
     {{ end }}
 
     <!-- BRANDS WE LIKE -->

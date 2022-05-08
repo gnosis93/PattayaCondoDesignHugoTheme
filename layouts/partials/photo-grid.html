@@ -1,39 +1,30 @@
-<div id="custom-gallery" class="carousel">
-    <div class="carousel-inner">
+<div id="custom-gallery" class="photo-grid">
+    <div class="photo-grid-inner">
         {{ $counter := 0 }}
         {{ range $gindex, $element := .Params.gallery }}
             {{ $counter = $gindex }}
         {{ end }}
-        <div class="carousel-column">
+        <div class="photo-grid-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if eq $gindex 0}}
                     <a class="custom-gallery-item" data-src="{{$element}}">
-                        <picture>
-                            <source srcset="{{$element}}"> 
-                            <img class="w-100 carousel-img" src="{{$element}}">
-                        </picture>
+                        <img class="w-100 photo-grid-img" src="{{$element}}">
                     </a>
                 {{ end }}
             {{ end }}
         </div>
-        <div class="carousel-column">
+        <div class="photo-grid-column">
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
                     <a class="custom-gallery-item" data-src="{{$element}}">
-                        <picture>
-                            <source srcset="{{$element}}"> 
-                            <img class="w-100 carousel-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}">
-                        </picture>
+                        <img class="w-100 photo-grid-img-small {{ if lt $counter 3}}img-size-half{{ end }}" src="{{$element}}">
                     </a>
                 {{ end }}
                 {{ if eq $gindex 3 }}
                     <a class="custom-gallery-item" data-src="{{$element}}">
-                        <picture>
-                            <source srcset="{{$element}}"> 
-                            <img class="w-100 carousel-img-small" src="{{$element}}">
-                        </picture>
+                        <img class="w-100 photo-grid-img-small" src="{{$element}}">
                         {{if gt $counter 3}}
-                            <div class="carousel-overlay"></div>
+                            <div class="photo-grid-overlay"></div>
                             <div class="counter">
                                 +{{ math.Sub $counter  3 }}
                             </div>

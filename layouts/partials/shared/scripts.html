@@ -1,0 +1,9 @@
+{{ $jqueryJS := resources.Get "/libs/jquery/jquery-3.6.0.min.js" }}
+{{ $bootstrapJS := resources.Get "/libs/bootstrap/js/bootstrap.js" }}
+{{ $mainJS := resources.Get "/js/main.js" }}
+{{ $customGalleryJS := resources.Get "/js/custom-gallery.js" }}
+
+{{ $secureJS := slice $jqueryJS $bootstrapJS $mainJS $customGalleryJS | resources.Concat "bundle.js" |
+resources.Minify | resources.Fingerprint "sha512" }}
+<script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}">
+</script>

@@ -1,0 +1,8 @@
+{{ with .Site.GetPage "/theme-colors" }}
+<div id="preloader">
+    <span>
+        <img src="{{ .Params.preloader.logo }}" alt="Please wait...">
+        <img src="/images/preloader.gif">
+    </span>
+</div>
+{{ end }}

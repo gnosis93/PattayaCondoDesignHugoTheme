@@ -1,21 +1,17 @@
 <div id="desktop">
-    {{ range $pindex, $project := index (where .Pages ".Params.types" "projects").ByDate.Reverse }}
+    {{ range $pindex, $project := index (where .Pages ".Params.types" .Type).ByDate.Reverse }}
         <div class="py-4 defualt-padding">
             <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{.Params.Title}}')"><i class="fas fa-share-alt-square"></i></a>
             <h4 class="font-weight-bold m-0 d-inline">{{.Params.Title}}</h4>
             <span class="d-block mt-2" id="{{.Params.Title}}"></span>
             {{ partial "pipes/substr" (dict "type" "project" "index" $pindex "desc" .Params.description) }}
-
             <div id="custom-gallery" class="row mt-4">
                 {{ range  $index, $element := $project.Params.gallery }}
                 {{if lt $index 3}}
                   <div class="col-lg-4 mb-3 mb-lg-0">
                     <div class="hover hover-3 text-white rounded">
                       <a class="custom-gallery-item" data-src="{{$element}}">
-                        <picture>
-                          <source srcset="{{$element}}"> 
                           <img loading="lazy" src="{{$element}}">
-                        </picture>
                       </a>
                     </div>
                   </div>
@@ -39,15 +35,14 @@
 
 <div id="mobile" class="mt-4">
     <div class="defualt-padding">
-        {{ range $pindex, $project := index (where .Pages ".Params.types" "projects").ByDate.Reverse }}
+        {{ range $pindex, $project := index (where .Pages ".Params.types" .Type).ByDate.Reverse }}
         <div class="row pb-4" id="project-m-{{ $pindex }}">
                 <div class="col-sm-12">
                     <div class="card shadow">
-                        {{partial "carousel" (dict "Type" "Project" "Index" $pindex "Params" $project.Params)}}
+                        {{partial "photo-grid" (dict "Params" $project.Params)}}
                         <div class="card-body">
                             <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{$project.Params.Title}}-m')"><i class="fas fa-share-alt-square"></i></a>
                             <h4 class="card-title d-inline"><strong>{{$project.Params.Title}}</strong></h4>
-      
                             <span class="d-block mt-2" id="{{$project.Params.Title}}-m"></span>
                             {{ partial "pipes/substr" (dict "type" "project-m" "index" $pindex "desc" .Params.description) }}
                         </div>

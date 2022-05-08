@@ -3,7 +3,7 @@
         <div class="row mb-4">
             <div class="col-sm-12">
                 <div class="card m-auto shadow-sm">
-                    {{partial "carousel" (dict "Type" "Plan" "Index" 0 "Params" .Params)}}
+                    {{partial "photo-grid" (dict "Params" .Params)}}
                     <div class="card-body">
                         <h5 class="card-title"><strong>{{.Params.Title}}</strong></h5>
                         {{ .Params.description | safeHTML }}
