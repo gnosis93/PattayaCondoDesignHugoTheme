@@ -9,7 +9,7 @@
                 {{ if eq $gindex 0}}
 
                     {{ $source := resources.Get $element }}
-                    {{ $thumbnail := $source.Fit "292x350 q50" }}
+                    {{ $thumbnail := $source.Fit "640x350 q50" }}
                     {{ $image := $source.Fit "1280x720 q75" }}
 
                     <a class="custom-gallery-item" data-src="{{ $image.RelPermalink }}">

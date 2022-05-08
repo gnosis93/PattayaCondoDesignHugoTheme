@@ -325,6 +325,10 @@ body {
 /** #endregion **/
 
 /** #region PHOTO GRID **/
+.listing-img {
+  object-fit: cover;
+  object-position: center;
+}
 .card {
   border-radius: 0px !important;
   color: #616161;
