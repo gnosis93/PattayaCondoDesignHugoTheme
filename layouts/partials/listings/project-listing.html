@@ -7,7 +7,7 @@
             {{ partial "pipes/substr" (dict "type" "project" "index" $pindex "desc" .Params.description) }}
 
             <div id="custom-gallery" class="row mt-4">
-                {{ range  $index, $element := $plan.Params.gallery }}
+                {{ range  $index, $element := $project.Params.gallery }}
                 {{if lt $index 3}}
                   <div class="col-lg-4 mb-3 mb-lg-0">
                     <div class="hover hover-3 text-white rounded">
