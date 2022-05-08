@@ -9,7 +9,7 @@
             <div id="custom-gallery" class="row mt-4">
             {{ range  $index, $element := $project.Params.gallery }}
 
-                {{ $image := resources.Get $element }}
+                {{ $image := resources.Get "uploads/01.jpg" }}
                 {{ $image := $image.Fit "1920x1080 q100" }}
 
                 {{if lt $index 3}}

@@ -9,12 +9,7 @@ min_version = 0.53
 [author]
     name = "webective"
     homepage = "https://webective.com/"
-
-[module]
-  [[module.mounts]]
-    source = "static/uploads"
-    target = "assets/uploads"
-
+    
 # If Porting existing theme
 [original]
     author =  "webective"

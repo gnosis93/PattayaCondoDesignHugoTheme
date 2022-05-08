@@ -8,7 +8,7 @@
             {{ range $gindex, $element := .Params.gallery }}
                 {{ if eq $gindex 0}}
 
-                    {{ $image := resources.Get $element }}
+                    {{ $image := resources.Get "uploads/01.jpg" }}
                     {{ $image := $image.Fit "1920x1080 q100" }}
 
                     <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
@@ -29,7 +29,7 @@
         <div class="carousel-column">
             {{ range $gindex, $element := .Params.gallery }}
 
-                {{ $image := resources.Get $element }}
+                {{ $image := resources.Get "uploads/01.jpg" }}
                 {{ $image := $image.Fit "1920x1080 q100" }}
 
                 {{ if and (gt $gindex 0) (lt $gindex 3)}}
