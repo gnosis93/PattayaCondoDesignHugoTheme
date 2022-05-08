@@ -8,27 +8,28 @@
 
             <div id="custom-gallery" class="row mt-4">
             {{ range  $index, $element := $project.Params.gallery }}
+
+                {{ $image := resources.Get $element }}
+                {{ $image := $image.Fit "1920x1080 q100" }}
+
                 {{if lt $index 3}}
                     <div class="col-lg-4 mb-3 mb-lg-0">
                         <div class="hover hover-3 text-white rounded">
-                            <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
-                                <img loading="lazy" src="{{$element}}?nf_resize=smartcrop&w=576&h=346">
+                            <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
+                                <img loading="lazy" src="{{$image.RelPermalink}}">
                             </a>
                         </div>
                     </div>
                 {{end}}
                 {{if eq $index 3}}
                     <div class="btn-more">
-                        <a class="custom-gallery-item" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920">
+                        <a class="custom-gallery-item" data-src="{{$image.RelPermalink}}">
                             View More
                         </a>
                     </div>
                 {{end}}
                 {{if gt $index 3}}
-                    {{/*  {{ $image := resources.Get $element }}
-                    {{ $image := $image.Fit "1280x1920 q75" }}
-                    <a class="custom-gallery-item hidden" data-src="{{ $image.RelPermalink }}"></a>  */}}
-                    <a class="custom-gallery-item hidden" data-src="{{$element}}?nf_resize=fit&w=1280&h=1920"></a>
+                    <a class="custom-gallery-item hidden" data-src="{{$image.RelPermalink}}"></a>
                 {{end}}
         {{ end }}
         </div>
