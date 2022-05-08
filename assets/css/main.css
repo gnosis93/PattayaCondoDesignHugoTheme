@@ -350,6 +350,8 @@ body {
   max-width: 50%;
   margin: 0;
   padding: 0;
+  position: relative;
+  overflow: hidden;
 }
 .photo-grid-img {
   object-fit: cover;
@@ -384,13 +386,14 @@ body {
   position: absolute;
   color: white;
   font-size: 38px;
-  bottom: 26px;
-  right: 20%;
+  bottom: 30px;
+  left: 0;
+  text-align: center;
 }
 
 .photo-grid-overlay {
   position: absolute;
-  bottom: 0;
+  bottom: 4px;
   right: -4px;
   width: 50% !important;
   height: 114px !important;
@@ -805,9 +808,9 @@ option {
     margin-top: 220px !important;
     margin-bottom: -200px !important;
   }
-  .counter {
+  /* .counter {
     right: 18% !important;
-  }
+  } */
 }
 @media (max-width: 359px) {
   .photo-grid-item img {
@@ -819,8 +822,8 @@ option {
     margin-top: 220px !important;
     margin-bottom: -200px !important;
   }
-  .counter {
+  /* .counter {
     right: 16% !important;
-  }
+  } */
 }
 /** #endregion **/
