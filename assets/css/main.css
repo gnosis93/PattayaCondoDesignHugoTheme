@@ -357,6 +357,7 @@ body {
   height: 350px !important;
 }
 .photo-grid-img-small {
+  position: relative;
   object-fit: cover;
   object-position: center;
   height: 118px !important;
