@@ -45,11 +45,13 @@ function hideDescription(type, id) {
 }
 function validateCaptcha(){
 	setInterval(() => {
-		let recaptcha = document.forms["contact-form"]["g-recaptcha-response"];
-		if (recaptcha != undefined && recaptcha != null) {
-			recaptcha.required = true;
-			recaptcha.oninvalid = function (e) {
-				alert("Please check the box, \"I'm not a robot\" in the reCaptcha below.");
+		if(document.forms["contact-form"] != undefined) {
+			let recaptcha = document.forms["contact-form"]["g-recaptcha-response"];
+			if (recaptcha != undefined && recaptcha != null) {
+				recaptcha.required = true;
+				recaptcha.oninvalid = function (e) {
+					alert("Please check the box, \"I'm not a robot\" in the reCaptcha below.");
+				}
 			}
 		}
 	}, 5000);
