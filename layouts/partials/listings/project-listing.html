@@ -4,7 +4,7 @@
             <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{.Params.Title}}')"><i class="fas fa-share-alt-square"></i></a>
             <h4 class="font-weight-bold m-0 d-inline">{{.Params.Title}}</h4>
             <span class="d-block mt-2" id="{{.Params.Title}}"></span>
-            {{ partial "pipes/substr" (dict "type" "{{$project.Params.types}}" "index" $pindex "desc" .Params.description) }}
+            {{ partial "pipes/substr" (dict "type" .Type "index" $pindex "desc" .Params.description) }}
             <div id="custom-gallery" class="row mt-4">
               {{ range  $index, $element := $project.Params.gallery }}
 
@@ -40,7 +40,7 @@
 <div id="mobile" class="mt-4">
     <div class="defualt-padding">
         {{ range $pindex, $project := index (where .Pages ".Params.types" .Type).ByDate.Reverse }}
-        <div class="row pb-4" id="{{$project.Params.types}}-m-{{ $pindex }}">
+        <div class="row pb-4" id="{{ .Type }}-m-{{ $pindex }}">
                 <div class="col-sm-12">
                     <div class="card shadow">
                         {{partial "photo-grid" (dict "Params" $project.Params)}}
@@ -48,7 +48,7 @@
                             <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{$project.Params.Title}}-m')"><i class="fas fa-share-alt-square"></i></a>
                             <h4 class="card-title d-inline"><strong>{{$project.Params.Title}}</strong></h4>
                             <span class="d-block mt-2" id="{{$project.Params.Title}}-m"></span>
-                            {{ partial "pipes/substr" (dict "type" "{{$project.Params.types}}-m" "index" $pindex "desc" .Params.description) }}
+                            {{ partial "pipes/substr" (dict "type" (printf "%s" .Type | printf "%s-m") "index" $pindex "desc" .Params.description) }}
                         </div>
                     </div>
                 </div>
