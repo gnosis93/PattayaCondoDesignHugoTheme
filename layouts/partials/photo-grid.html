@@ -1,11 +1,9 @@
 <div id="custom-gallery" class="photo-grid">
     <div class="photo-grid-inner">
         {{ $counter := 0 }}
-        {{ range $gindex, $element := .Params.gallery }}
-            {{ $counter = $gindex }}
-        {{ end }}
         <div class="photo-grid-column">
             {{ range $gindex, $element := .Params.gallery }}
+                {{ $counter = $gindex }}
                 {{ if eq $gindex 0}}
 
                     {{ $source := resources.Get $element }}

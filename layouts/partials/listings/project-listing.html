@@ -1,5 +1,7 @@
+{{ $counter := -1 }}
 <div id="desktop">
     {{ range $pindex, $project := index (where .Pages ".Params.types" .Type).ByDate.Reverse }}
+        {{ $counter = $pindex }}
         <div class="py-4 defualt-padding">
             <a class="btn-share" onclick="copyURL('{{.Permalink}}', '{{.Params.Title}}')"><i class="fas fa-share-alt-square"></i></a>
             <h4 class="font-weight-bold m-0 d-inline">{{.Params.Title}}</h4>
@@ -56,3 +58,10 @@
         {{ end }}
     </div>
 </div>
+
+{{ if eq $counter -1 }}
+    <div class="py-8 text-center">
+        <i class="fas fa-info-circle"></i>
+        &nbsp;&nbsp;This list is empty.
+    </div>
+{{ end }}
